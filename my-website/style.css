@@ -1,32 +1,89 @@
-body {
-  font-family: 'Inter', sans-serif;
+/* Global styles */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
   color: #333;
   background-color: #fafafa;
   line-height: 1.6;
 }
 
-header, section, footer {
-  max-width: 800px;
-  margin: auto;
-  padding: 2rem;
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
 }
 
-header {
-  text-align: center;
-  background-color: #f0f0f0;
-  border-bottom: 2px solid #ddd;
-}
-
-h1, h2 {
+.navbar .logo {
+  font-weight: 700;
+  font-size: 1.5rem;
   color: #222;
 }
 
-a {
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.navbar a {
   color: #0077cc;
   text-decoration: none;
+  font-weight: 500;
 }
-a:hover {
+
+.navbar a.active,
+.navbar a:hover {
   text-decoration: underline;
+}
+
+/* Hero section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 80vh;
+  background: linear-gradient(135deg, #0077cc 0%, #00b4d8 100%);
+  color: white;
+  padding: 2rem;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  background: white;
+  color: #0077cc;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.btn:hover {
+  background: #e0e0e0;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  border-top: 1px solid #ddd;
+  background: #fff;
 }

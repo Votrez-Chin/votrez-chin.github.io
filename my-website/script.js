@@ -1,2 +1,6 @@
-// Example: greet the user
-console.log("Welcome to my website!");
+// Simple fade-in animation on load
+window.addEventListener('DOMContentLoaded', () => {
+  document.body.style.opacity = 0;
+  document.body.style.transition = 'opacity 1s ease';
+  setTimeout(() => (document.body.style.opacity = 1), 100);
+});

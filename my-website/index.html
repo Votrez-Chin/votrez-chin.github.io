@@ -1,34 +1,35 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Personal Website</title>
+  <title>Alex Smith | Web Developer</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<script src="script.js"></script>
 <body>
-  <header>
-    <h1>Hello, I'm Alex 👋</h1>
-    <p>Web Developer | Designer | Writer</p>
+  <header class="navbar">
+    <h1 class="logo">Alex Smith</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I love creating clean, modern websites and digital experiences.</p>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li><a href="#">Portfolio Website</a></li>
-      <li><a href="#">Weather App</a></li>
-    </ul>
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Hello, I’m Alex 👋</h2>
+      <p>Web Developer & Designer creating elegant, fast, and user-friendly experiences.</p>
+      <a href="projects.html" class="btn">View My Work</a>
+    </div>
   </section>
 
   <footer>
-    <p>© 2025 Alex | <a href="mailto:alex@email.com">Email me</a></p>
+    <p>© 2025 Alex Smith — <a href="mailto:alex@example.com">alex@example.com</a></p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

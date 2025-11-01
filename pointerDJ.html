@@ -3,33 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pointer DJ | Votrez Chin</title>
+  <title>Pointer DJ</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="navbar">
-    <h1 class="logo">Votrez Chin</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="dj.html" class="active">Pointer DJ</a></li>
-      </ul>
-    </nav>
-  </header>
+  <h1>Pointer DJ</h1>
+  <p>Move your mouse across the page to mix the beats 🎵</p>
 
-  <main class="container">
-    <h2>Pointer DJ</h2>
-    <p>Move your mouse across the screen and different songs will play depending on the pointer's position!</p>
-  </main>
+  <audio id="song1" src="songs/song1.mp3" preload="auto"></audio>
+  <audio id="song2" src="songs/song2.mp3" preload="auto"></audio>
+  <audio id="song3" src="songs/song3.mp3" preload="auto"></audio>
+  <audio id="song4" src="songs/song4.mp3" preload="auto"></audio>
+  <audio id="song5" src="songs/song5.mp3" preload="auto"></audio>
 
-  <footer>
-    <p>© 2025 Votrez Chin</p>
-  </footer>
-
-  <!-- JS scripts -->
-  <script src="script.js"></script>       <!-- main JS -->
-  <script src="pointerDJ.js"></script>    <!-- Pointer DJ logic -->
+  <script src="pointerDJ.js"></script>
 </body>
 </html>

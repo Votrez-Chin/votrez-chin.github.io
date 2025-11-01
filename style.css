@@ -43,21 +43,24 @@ body {
 
 /* Hero Section */
 .hero {
-  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  justify-content: center; /* vertical centering */
+  align-items: center;     /* horizontal centering */
+  text-align: center;      /* center text inside elements */
+  height: 100vh;
   background-color: #0077ff;
   color: white;
+  gap: 20px; /* vertical spacing between elements */
   padding: 0 20px;
 }
 
 .hero h2 {
+  margin: 0;  /* remove default top/bottom margins */
   font-size: 3rem;
-  margin-bottom: 10px;
+  text-align: center; /* ensures heading text is centered */
 }
+
 
 .hero p {
   font-size: 1.5rem;

@@ -1,45 +1,65 @@
-// pointerDJ.js
+let currentSong = null;
+let fadeInterval = null;
 
-// Array of audio file paths corresponding to each region (3x3 grid = 9 regions)
-const songs = [
-  "audio/huiyi.mp3",
-  "audio/freeuse.mp3",
-];
+document.addEventListener("mousemove", (event) => {
+  const width = window.innerWidth;
+  const height = window.innerHeight;
 
-// Create a single audio element to play songs
-let audio = new Audio();
-audio.loop = true;
+  const x = event.clientX;
+  const y = event.clientY;
 
-// Track screen width and height
-let width = window.innerWidth;
-let height = window.innerHeight;
+  const horizontal = x < width / 2 ? "left" : "right";
+  const vertical = y < height / 2 ? "top" : "bottom";
 
-// Function to determine which region the pointer is in
-function getRegion(x, y) {
-  const col = Math.floor((x / width) * 3); // 0,1,2
-  const row = Math.floor((y / height) * 3); // 0,1,2
-  return row * 3 + col; // region index 0-8
+  let songId;
+
+  if (horizontal === "left" && vertical === "top") {
+    songId = "song1";
+  } else if (horizontal === "right" && vertical === "top") {
+    songId = "song2";
+  } else if (horizontal === "left" && vertical === "bottom") {
+    songId = "song3";
+  } else {
+    songId = "song4";
+  }
+
+  playSongWithFade(songId);
+});
+
+function playSongWithFade(songId) {
+  const newSong = document.getElementById(songId);
+  if (!newSong || newSong === currentSong) return;
+
+  if (currentSong) fadeOut(currentSong);
+
+  newSong.volume = 0;
+  newSong.currentTime = 0;
+  newSong.play();
+  fadeIn(newSong);
+
+  currentSong = newSong;
 }
 
-// Track last region to avoid restarting same song
-let lastRegion = -1;
+function fadeIn(audio) {
+  clearInterval(fadeInterval);
+  fadeInterval = setInterval(() => {
+    if (audio.volume < 1.0) {
+      audio.volume = Math.min(audio.volume + 0.05, 1.0);
+    } else {
+      clearInterval(fadeInterval);
+    }
+  }, 100);
+}
 
-// Mouse movement listener
-document.addEventListener("mousemove", (e) => {
-  const region = getRegion(e.clientX, e.clientY);
-  
-  if (region !== lastRegion) {
-    lastRegion = region;
-    audio.src = songs[region];
-    audio.play().catch(err => {
-      console.log("Audio play prevented:", err);
-    });
-  }
-});
-
-// Update width and height on window resize
-window.addEventListener("resize", () => {
-  width = window.innerWidth;
-  height = window.innerHeight;
-});
-
+function fadeOut(audio) {
+  clearInterval(fadeInterval);
+  fadeInterval = setInterval(() => {
+    if (audio.volume > 0.05) {
+      audio.volume = Math.max(audio.volume - 0.05, 0);
+    } else {
+      audio.pause();
+      audio.currentTime = 0;
+      clearInterval(fadeInterval);
+    }
+  }, 100);
+}

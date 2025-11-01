@@ -1,20 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pointer DJ</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pointer DJ | Votrez Chin</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Pointer DJ</h1>
-  <p>Move your mouse across the page to mix the beats 🎵</p>
 
-  <audio id="song1" src="songs/song1.mp3" preload="auto"></audio>
-  <audio id="song2" src="songs/song2.mp3" preload="auto"></audio>
-  <audio id="song3" src="songs/song3.mp3" preload="auto"></audio>
-  <audio id="song4" src="songs/song4.mp3" preload="auto"></audio>
-  <audio id="song5" src="songs/song5.mp3" preload="auto"></audio>
+  <!-- Navbar -->
+  <header class="navbar">
+    <h1 class="logo">Votrez Chin</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#projects" class="active">Projects</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Project Hero -->
+  <section class="hero">
+    <h2>Pointer DJ</h2>
+    <p>Move your mouse to play different tracks and create live music mixes.</p>
+  </section>
+
+  <!-- Interactive DJ Section -->
+  <section class="projects fade-in">
+    <h2>Try It!</h2>
+    <div id="pointer-dj-container">
+      <!-- Your interactive grid will appear here -->
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Votrez Chin</p>
+  </footer>
 
   <script src="pointerDJ.js"></script>
 </body>

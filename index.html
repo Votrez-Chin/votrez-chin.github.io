@@ -22,9 +22,11 @@
 
   <!-- Hero Section -->
   <section id="home" class="hero">
-    <h2>Hi, I’m Votrez Chin</h2>
-    <p>I build interactive and responsive websites using HTML, CSS, and JavaScript.</p>
-    <a href="#projects" class="btn">View My Work</a>
+    <h2 class="fade-in">Hi, I’m Votrez Chin</h2>
+    <p class="fade-in" style="transition-delay: 0.3s;">
+      I build interactive and responsive websites using HTML, CSS, and JavaScript.
+    </p>
+    <a href="#projects" class="btn fade-in" style="transition-delay: 0.5s;">View My Work</a>
   </section>
 
   <!-- About Section -->
@@ -34,20 +36,20 @@
   </section>
 
   <!-- Projects Overview Section -->
-  <section id="projects" class="projects fade-in">
-    <h2>Projects</h2>
+  <section id="projects" class="projects">
+    <h2 class="fade-in">Projects</h2>
     <div class="projects-grid">
-      <div class="project-card">
+      <div class="project-card fade-in" style="transition-delay: 0.2s;">
         <h3>Portfolio Website</h3>
         <p>A responsive personal website built with HTML, CSS, and JavaScript.</p>
         <a href="#" class="btn">View Project</a>
       </div>
-      <div class="project-card">
-        <h3>Photography</h3>
-        <p>Photography</p>
+      <div class="project-card fade-in" style="transition-delay: 0.4s;">
+        <h3>Weather App</h3>
+        <p>Interactive weather app using a public API and geolocation.</p>
         <a href="#" class="btn">View Project</a>
       </div>
-      <div class="project-card">
+      <div class="project-card fade-in" style="transition-delay: 0.6s;">
         <h3>Pointer DJ</h3>
         <p>Move your mouse to mix different tracks in real time.</p>
         <a href="pointerDJ.html" class="btn">View Project</a>
@@ -55,9 +57,34 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>© 2025 Votrez Chin</p>
   </footer>
+
+  <!-- Scroll-triggered fade-in script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const faders = document.querySelectorAll(".fade-in");
+
+      const observerOptions = {
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      faders.forEach(fader => {
+        observer.observe(fader);
+      });
+    });
+  </script>
 
 </body>
 </html>

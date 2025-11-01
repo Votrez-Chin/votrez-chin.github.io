@@ -4,10 +4,7 @@ let fadeInterval = null;
 // 🎵 List your songs here (add as many as you like)
 const songList = [
   "song1",
-  "song2",
-  "song3",
-  "song4",
-  "song5" // Add as many as you like
+  "song2" // Add as many as you like
 ];
 
 // 🟩 Grid dimensions
@@ -30,7 +27,8 @@ for (let r = 0; r < gridSize; r++) {
   for (let c = 0; c < gridSize; c++) {
     const cell = document.createElement("div");
     cell.style.position = "absolute";
-    cell.style.border = "1px solid rgba(0,0,0,0.1)";
+    cell.style.border = "1px solid rgba(0,0,0,0.3)"; // more visible
+    cell.style.backgroundColor = "rgba(0,0,0,0.03)"; // very light shade
     cell.style.width = `${100 / gridSize}%`;
     cell.style.height = `${100 / gridSize}%`;
     cell.style.left = `${(c * 100) / gridSize}%`;
@@ -38,6 +36,7 @@ for (let r = 0; r < gridSize; r++) {
     overlay.appendChild(cell);
   }
 }
+
 
 // Mouse movement handler
 document.addEventListener("mousemove", (event) => {

@@ -19,12 +19,24 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background-color: transparent; /* removes background */
-  box-shadow: none;              /* removes shadow */
-  position: sticky;
+  background-color: transparent; /* makes navbar fully transparent */
+  box-shadow: none;              /* removes any shadow */
+  position: absolute;            /* absolute over hero section */
+  width: 100%;                   /* spans full width */
   top: 0;
   z-index: 100;
 }
+
+.navbar {
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Example: when scrolled, add a subtle background */
+.navbar.scrolled {
+  background-color: rgba(255,255,255,0.95);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
 .navbar ul {
   display: flex;
   list-style: none;
@@ -32,7 +44,7 @@ body {
 }
 
 .navbar a {
-  color: white; /* make links visible on colored background */
+  color: white; /* ensures links are visible */
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
@@ -42,12 +54,12 @@ body {
   color: #e0e0e0; /* subtle hover effect */
 }
 
-
 .navbar .logo {
-  color: white;   /* logo text visible */
+  color: white; /* logo text visible */
   font-weight: bold;
   font-size: 1.5rem;
 }
+
 
 .navbar a.active {
   font-weight: bold;

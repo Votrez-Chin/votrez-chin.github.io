@@ -90,18 +90,23 @@ p {
 }
 
 .project-card {
-  background-color: #1a1a1a;
+  background-color: #d3d3d3;  /* light grey */
+  color: #FFD700;             /* yellow font */
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(255,255,255,0.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
   transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card h3,
+.project-card p {
+  color: #FFD700;  /* ensure all text inside is yellow */
 }
 
 .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(255,255,255,0.1);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
-
 /* Buttons */
 .btn {
   display: inline-block;

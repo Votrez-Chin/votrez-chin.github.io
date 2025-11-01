@@ -1,29 +1,61 @@
 let currentSong = null;
 let fadeInterval = null;
 
+// 🎵 List your songs here (add as many as you like)
+const songList = [
+  "song1",
+  "song2",
+  "song3",
+  "song4",
+  "song5" // Add as many as you like
+];
+
+// 🟩 Grid dimensions
+const totalCells = Math.ceil(Math.sqrt(songList.length)) ** 2; // full square grid
+const gridSize = Math.sqrt(totalCells); // rows & columns
+
+// Create visual grid overlay
+const overlay = document.createElement("div");
+overlay.style.position = "fixed";
+overlay.style.top = "0";
+overlay.style.left = "0";
+overlay.style.width = "100%";
+overlay.style.height = "100%";
+overlay.style.pointerEvents = "none"; // let mouse go through
+overlay.style.zIndex = "999";
+document.body.appendChild(overlay);
+
+// Draw the grid
+for (let r = 0; r < gridSize; r++) {
+  for (let c = 0; c < gridSize; c++) {
+    const cell = document.createElement("div");
+    cell.style.position = "absolute";
+    cell.style.border = "1px solid rgba(0,0,0,0.1)";
+    cell.style.width = `${100 / gridSize}%`;
+    cell.style.height = `${100 / gridSize}%`;
+    cell.style.left = `${(c * 100) / gridSize}%`;
+    cell.style.top = `${(r * 100) / gridSize}%`;
+    overlay.appendChild(cell);
+  }
+}
+
+// Mouse movement handler
 document.addEventListener("mousemove", (event) => {
   const width = window.innerWidth;
   const height = window.innerHeight;
-
   const x = event.clientX;
   const y = event.clientY;
 
-  const horizontal = x < width / 2 ? "left" : "right";
-  const vertical = y < height / 2 ? "top" : "bottom";
+  const col = Math.floor((x / width) * gridSize);
+  const row = Math.floor((y / height) * gridSize);
+  const index = row * gridSize + col;
 
-  let songId;
-
-  if (horizontal === "left" && vertical === "top") {
-    songId = "song1";
-  } else if (horizontal === "right" && vertical === "top") {
-    songId = "song2";
-  } else if (horizontal === "left" && vertical === "bottom") {
-    songId = "song3";
+  // Only play a song if there’s one assigned to this cell
+  if (index < songList.length) {
+    playSongWithFade(songList[index]);
   } else {
-    songId = "song4";
+    stopCurrentSong();
   }
-
-  playSongWithFade(songId);
 });
 
 function playSongWithFade(songId) {
@@ -38,6 +70,11 @@ function playSongWithFade(songId) {
   fadeIn(newSong);
 
   currentSong = newSong;
+}
+
+function stopCurrentSong() {
+  if (currentSong) fadeOut(currentSong);
+  currentSong = null;
 }
 
 function fadeIn(audio) {

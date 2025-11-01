@@ -19,13 +19,12 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background-color: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  background-color: transparent; /* removes background */
+  box-shadow: none;              /* removes shadow */
   position: sticky;
   top: 0;
   z-index: 100;
 }
-
 .navbar ul {
   display: flex;
   list-style: none;
@@ -33,8 +32,21 @@ body {
 }
 
 .navbar a {
+  color: white; /* make links visible on colored background */
   text-decoration: none;
-  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #e0e0e0; /* subtle hover effect */
+}
+
+
+.navbar .logo {
+  color: white;   /* logo text visible */
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 .navbar a.active {

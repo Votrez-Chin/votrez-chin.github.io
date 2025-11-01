@@ -6,7 +6,6 @@
   <title>Votrez Chin | Web Developer</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<script src="script.js"></script>
 <body>
 
   <!-- Navbar -->
@@ -16,7 +15,7 @@
       <ul>
         <li><a href="#home" class="active">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
+        <li><a href="#works">Works</a></li>
       </ul>
     </nav>
   </header>
@@ -27,7 +26,7 @@
     <p class="fade-in" style="transition-delay: 0.3s;">
       I build interactive and responsive websites using HTML, CSS, and JavaScript.
     </p>
-    <a href="#projects" class="btn fade-in" style="transition-delay: 0.5s;">View My Work</a>
+    <a href="#works" class="btn fade-in" style="transition-delay: 0.5s;">View My Work</a>
   </section>
 
   <!-- About Section -->
@@ -36,25 +35,29 @@
     <p>Passionate about front-end development and UX design. I love turning creative ideas into functional websites.</p>
   </section>
 
-  <!-- Projects Overview Section -->
-  <section id="projects" class="projects">
-    <h2 class="fade-in">Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card fade-in" style="transition-delay: 0.2s;">
-        <h3>Portfolio Website</h3>
-        <p>A responsive personal website built with HTML, CSS, and JavaScript.</p>
-        <a href="#" class="btn">View Project</a>
+  <!-- Works Section -->
+  <section id="works" class="works fade-in">
+    <h2>Explore My Work</h2>
+    <div class="works-grid">
+
+      <div class="category-card fade-in" style="transition-delay: 0.2s;">
+        <h3>Mathematics Projects</h3>
+        <p>Explore my problem-solving, research, and math experiments.</p>
+        <a href="math.html" class="btn">Go to Math</a>
       </div>
-      <div class="project-card fade-in" style="transition-delay: 0.4s;">
-        <h3>Weather App</h3>
-        <p>Interactive weather app using a public API and geolocation.</p>
-        <a href="#" class="btn">View Project</a>
+
+      <div class="category-card fade-in" style="transition-delay: 0.4s;">
+        <h3>Photography</h3>
+        <p>Discover my photography projects and visual storytelling.</p>
+        <a href="photography.html" class="btn">Go to Photography</a>
       </div>
-      <div class="project-card fade-in" style="transition-delay: 0.6s;">
-        <h3>Pointer DJ</h3>
-        <p>Move your mouse to mix different tracks in real time.</p>
-        <a href="pointerDJ.html" class="btn">View Project</a>
+
+      <div class="category-card fade-in" style="transition-delay: 0.6s;">
+        <h3>Philosophy & Literature</h3>
+        <p>Read my essays, reflections, and other writings.</p>
+        <a href="philosophy.html" class="btn">Go to Philosophy</a>
       </div>
+
     </div>
   </section>
 
@@ -62,6 +65,9 @@
   <footer>
     <p>© 2025 Votrez Chin</p>
   </footer>
+
+  <!-- External JS -->
+  <script src="script.js"></script>
 
 </body>
 </html>

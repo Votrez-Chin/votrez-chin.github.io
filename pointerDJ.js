@@ -2,15 +2,8 @@
 
 // Array of audio file paths corresponding to each region (3x3 grid = 9 regions)
 const songs = [
-  "audio/song1.mp3",
-  "audio/song2.mp3",
-  "audio/song3.mp3",
-  "audio/song4.mp3",
-  "audio/song5.mp3",
-  "audio/song6.mp3",
-  "audio/song7.mp3",
-  "audio/song8.mp3",
-  "audio/song9.mp3"
+  "audio/huiyi.mp3",
+  "audio/freeuse.mp3",
 ];
 
 // Create a single audio element to play songs

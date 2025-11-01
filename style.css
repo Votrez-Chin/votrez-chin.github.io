@@ -7,8 +7,8 @@
 
 body {
   font-family: "Inter", system-ui, sans-serif;
-  color: #ffffff;
-  background-color: #000000;
+  color: #ffffff;              /* white text */
+  background-color: #000000;   /* black background */
   line-height: 1.6;
   scroll-behavior: smooth;
 }
@@ -19,22 +19,10 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background-color: transparent; /* makes navbar fully transparent */
-  box-shadow: none;              /* removes any shadow */
-  position: absolute;            /* absolute over hero section */
-  width: 100%;                   /* spans full width */
+  background-color: transparent;
+  position: sticky;
   top: 0;
   z-index: 100;
-}
-
-.navbar {
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-/* Example: when scrolled, add a subtle background */
-.navbar.scrolled {
-  background-color: rgba(255,255,255,0.95);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .navbar ul {
@@ -44,22 +32,21 @@ body {
 }
 
 .navbar a {
-  color: white; /* ensures links are visible */
+  color: white;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
 }
 
 .navbar a:hover {
-  color: #e0e0e0; /* subtle hover effect */
+  color: #e0e0e0;
 }
 
 .navbar .logo {
-  color: white; /* logo text visible */
+  color: white;
   font-weight: bold;
   font-size: 1.5rem;
 }
-
 
 .navbar a.active {
   font-weight: bold;
@@ -69,43 +56,14 @@ body {
 .hero {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* vertical centering */
-  align-items: center;     /* horizontal centering */
-  text-align: center;      /* center text inside elements */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   height: 100vh;
-  background-color: #000000;
+  background-color: #0077ff;
   color: white;
-  gap: 20px; /* vertical spacing between elements */
+  gap: 20px;
   padding: 0 20px;
-}
-
-.hero h2 {
-  margin: 0;  /* remove default top/bottom margins */
-  font-size: 3rem;
-  text-align: center; /* ensures heading text is centered */
-}
-
-
-.hero p {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-
-.hero .btn {
-  display: inline-block;
-  margin: 0 auto; /* centers horizontally */
-  padding: 10px 20px;
-  background-color: white;
-  color: #0077ff;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: background 0.3s, color 0.3s;
-}
-
-
-.hero .btn:hover {
-  background-color: #e0e0e0;
-  color: #005fcc;
 }
 
 /* Sections */
@@ -132,23 +90,24 @@ p {
 }
 
 .project-card {
-  background-color: white;
+  background-color: #1a1a1a;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 15px rgba(255,255,255,0.05);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 25px rgba(255,255,255,0.1);
 }
 
 /* Buttons */
 .btn {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #f5f5f5;
+  background-color: #ffffff;
+  color: #0077ff;
   border-radius: 8px;
   font-weight: bold;
   transition: background 0.3s, color 0.3s;
@@ -156,21 +115,19 @@ p {
 
 .btn:hover {
   background-color: #e0e0e0;
+  color: #005fcc;
 }
 
-/* Fade-in Animation */
+/* Scroll-triggered fade-in */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 1s forwards;
-  animation-delay: 0.2s;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Footer */
@@ -178,5 +135,5 @@ footer {
   text-align: center;
   padding: 40px 20px;
   color: #777;
-  background-color: #f5f5f5;
+  background-color: #111;
 }

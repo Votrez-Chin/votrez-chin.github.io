@@ -105,8 +105,8 @@ p {
   box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
-.category-card h3, .category-card p {
-  color: #1a237e;
+.category-card, .category-card h3, .category-card p {
+  color: #1a237e !important;
 }
 
 /* Buttons */

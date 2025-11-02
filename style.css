@@ -92,7 +92,7 @@ p {
 
 .category-card {
   background-color: #d3d3d3; /* light grey */
-  color: #1a237e;             /* yellow text */
+  color: #1a237e;             
   padding: 20px;
   border-radius: 12px;
   text-align: center;
@@ -106,7 +106,7 @@ p {
 }
 
 .category-card h3, .category-card p {
-  color: #1a237e; /* ensure all text is yellow */
+  color: #1a237e;
 }
 
 /* Buttons */

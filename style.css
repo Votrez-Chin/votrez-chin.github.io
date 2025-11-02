@@ -92,7 +92,7 @@ p {
 
 .category-card {
   background-color: #d3d3d3; /* light grey */
-  color: #FFD700;             /* yellow text */
+  color: #1a237e;             /* yellow text */
   padding: 20px;
   border-radius: 12px;
   text-align: center;
@@ -106,7 +106,7 @@ p {
 }
 
 .category-card h3, .category-card p {
-  color: #FFD700; /* ensure all text is yellow */
+  color: #1a237e; /* ensure all text is yellow */
 }
 
 /* Buttons */
@@ -114,7 +114,7 @@ p {
   display: inline-block;
   padding: 10px 20px;
   background-color: #ffffff;
-  color: #FFD700; /* yellow button text */
+  color: #1a237e; /* yellow button text */
   border-radius: 8px;
   font-weight: bold;
   transition: background 0.3s, color 0.3s;

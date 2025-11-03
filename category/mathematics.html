@@ -4,9 +4,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mathematics | Votrez Chin</title>
+
+  <!-- Main site CSS -->
   <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Terminal-style blog CSS (optional tweaks) -->
+  <style>
+    #blog-content {
+      background-color: #111;
+      color: #00ff99;
+      font-family: "Courier New", monospace;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+    .command-line {
+      display: flex;
+      align-items: center;
+      margin-top: 15px;
+    }
+    .prompt {
+      padding-right: 10px;
+      color: #00ffff;
+    }
+    #command-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: #00ff99;
+      outline: none;
+      font-family: monospace;
+    }
+    .solution {
+      background-color: #222;
+      color: #ff0;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      display: none; /* hidden until command is typed */
+    }
+  </style>
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Markdown parser -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 </head>
 <body>
+  <!-- Navbar -->
   <header class="navbar">
     <h1 class="logo">Votrez Chin</h1>
     <nav>
@@ -19,26 +68,72 @@
     </nav>
   </header>
 
+  <!-- Main Content -->
   <main class="container fade-in">
-    <h2>Mathematics Projects</h2>
-    <p>Here are some of my mathematical explorations — from algorithmic experiments to analytical studies.</p>
-    <div class="projects-grid">
-      <div class="project-card">
-        <h3>Graph Theory Visualizer</h3>
-        <p>A JavaScript-based tool to visualize graphs and shortest paths.</p>
-      </div>
-      <div class="project-card">
-        <h3>Calculus Animation</h3>
-        <p>A dynamic visual explanation of derivatives and integrals.</p>
-      </div>
+    <h2>Mathematics Blog</h2>
+    <p>Welcome! Explore topics in algebra, calculus, and geometry. Use the mini command below to reveal solutions or hints.</p>
+
+    <!-- Blog Content (Markdown + LaTeX) -->
+    <div id="blog-content"></div>
+
+    <!-- Mini terminal interaction -->
+    <div class="command-line">
+      <span class="prompt">></span>
+      <input type="text" id="command-input" placeholder="Type command like 'show solution'" autocomplete="off">
     </div>
+    <div id="solution1" class="solution">
+      Here is the solution: $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
+    </div>
+
   </main>
 
+  <!-- Footer -->
   <footer>
     <p>© 2025 Votrez Chin</p>
   </footer>
 
+  <!-- Main JS -->
   <script src="../js/script.js" defer></script>
+
+  <!-- Terminal & Markdown JS -->
+  <script>
+    // Sample Markdown content
+    const markdown = `
+# Algebra Post
+
+This is a sample algebra post.
+
+Solve the quadratic equation:
+
+$$ ax^2 + bx + c = 0 $$
+
+Type "show solution" below to reveal the answer.
+`;
+
+    // Render Markdown
+    document.getElementById('blog-content').innerHTML = marked.parse(markdown);
+
+    // Render LaTeX
+    renderMathInElement(document.getElementById('blog-content'), {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false}
+      ]
+    });
+
+    // Command interaction
+    const input = document.getElementById('command-input');
+    input.addEventListener('keydown', function(e) {
+      if(e.key === 'Enter') {
+        const cmd = input.value.trim().toLowerCase();
+        if(cmd === 'show solution') {
+          document.getElementById('solution1').style.display = 'block';
+        } else {
+          alert('Unknown command: ' + cmd);
+        }
+        input.value = '';
+      }
+    });
+  </script>
 </body>
 </html>
-

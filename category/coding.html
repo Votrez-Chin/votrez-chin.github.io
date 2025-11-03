@@ -3,97 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coding Projects | Votrez Chin</title>
-
-  <!-- Main Site CSS -->
-  <link rel="stylesheet" href="../css/style.css" />
-
-  <!-- Terminal Page Styles -->
-  <style>
-    body {
-      background-color: #0b0b0b;
-      color: #00ffcc;
-      font-family: "Courier New", monospace;
-      padding: 30px;
-    }
-
-    #terminal {
-      background-color: #111;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
-      min-height: 400px;
-    }
-
-    #output {
-      white-space: pre-wrap;
-      line-height: 1.5;
-    }
-
-    .command-line {
-      display: flex;
-      align-items: center;
-      margin-top: 15px;
-    }
-
-    .prompt {
-      color: #00ffff;
-      margin-right: 10px;
-    }
-
-    #command-input {
-      flex: 1;
-      background: transparent;
-      border: none;
-      color: #00ffcc;
-      outline: none;
-      font-size: 1rem;
-    }
-
-    .project-content {
-      background-color: #1c1c1c;
-      padding: 15px;
-      border-radius: 6px;
-      color: #fff;
-      margin-top: 10px;
-      border-left: 3px solid #00ffcc;
-    }
-
-    a {
-      color: #00ffcc;
-    }
-
-    /* Syntax Highlighting */
-    pre code {
-      background-color: #000;
-      padding: 10px;
-      border-radius: 5px;
-      color: #00ff99;
-      display: block;
-      overflow-x: auto;
-    }
-  </style>
-
-  <!-- Markdown Parser -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
-  <!-- Syntax Highlighting -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css"
-  />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-
-  <!-- KaTeX (optional math rendering) -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"
-  />
-  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+  <title>Coding | Votrez Chin</title>
+  <link rel="stylesheet" href="../css/coding.css" />
 </head>
-
 <body>
+  <!-- Hidden Navbar -->
   <header class="navbar">
     <h1 class="logo">Votrez Chin</h1>
     <nav>
@@ -102,91 +16,26 @@
         <li><a href="mathematics.html">Mathematics</a></li>
         <li><a href="photography.html">Photography</a></li>
         <li><a href="others.html">Others</a></li>
-        <li><a href="coding.html" class="active">Coding</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <h2>Coding Projects Terminal</h2>
-    <div id="terminal">
-      <div id="output">
-        Welcome to Votrez’s coding terminal.<br />
-        Type <span style="color:#ff0;">help</span> to see available commands.
-      </div>
-
-      <div class="command-line">
-        <span class="prompt">&gt;</span>
-        <input
-          type="text"
-          id="command-input"
-          placeholder="Type a command (e.g. 'list projects')"
-          autocomplete="off"
-        />
-      </div>
+  <!-- Banner / Pre-rendered Text -->
+  <section class="terminal">
+    <pre id="terminal-block"></pre>
+    <div class="input-line" id="input-line" style="display:none;">
+      <span class="prompt">$guest@Votrez-chin.github.io: </span>
+      <span class="terminal-input-container">
+        <span id="terminal-input" class="terminal-input" contenteditable="true"></span>
+        <span class="cursor"></span>
+      </span>
     </div>
-  </main>
+  </section>
 
   <footer>
     <p>© 2025 Votrez Chin</p>
   </footer>
 
-  <script src="../js/script.js" defer></script>
-
-  <!-- Terminal Command Script -->
-  <script>
-    const output = document.getElementById("output");
-    const input = document.getElementById("command-input");
-
-    const projects = {
-      "quicksort": "../category/posts/quicksort.md",
-      "recommender": "../category/posts/recommender.md",
-      "portfolio": "../category/posts/portfolio.md"
-    };
-
-    function print(text) {
-      output.innerHTML += "\\n" + text;
-      output.scrollTop = output.scrollHeight;
-    }
-
-    input.addEventListener("keydown", async function (e) {
-      if (e.key === "Enter") {
-        const cmd = input.value.trim().toLowerCase();
-        input.value = "";
-
-        if (cmd === "help") {
-          print("Available commands:\\n- list projects\\n- open [project]\\n- clear");
-        }
-        else if (cmd === "list projects") {
-          print("Available projects:");
-          for (const p in projects) print(" - " + p);
-        }
-        else if (cmd.startsWith("open ")) {
-          const name = cmd.split(" ")[1];
-          if (projects[name]) {
-            try {
-              const res = await fetch(projects[name]);
-              const text = await res.text();
-              const html = marked.parse(text);
-              print("\\nOpening project: " + name + "\\n");
-              output.innerHTML += "<div class='project-content'>" + html + "</div>";
-              hljs.highlightAll();
-              renderMathInElement(document.getElementById("output"));
-            } catch (err) {
-              print("Error loading project: " + err);
-            }
-          } else {
-            print("Project not found: " + name);
-          }
-        }
-        else if (cmd === "clear") {
-          output.innerHTML = "";
-        }
-        else {
-          print("Unknown command: " + cmd);
-        }
-      }
-    });
-  </script>
+  <script src="../js/coding.js"></script>
 </body>
 </html>

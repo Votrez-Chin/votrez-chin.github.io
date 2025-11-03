@@ -1,0 +1,136 @@
+/* Body & Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background-color: #000;
+  color: #fff;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Hidden Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0,0,0,0.8);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 100;
+}
+
+.navbar:hover {
+  opacity: 1;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar a:hover {
+  color: #f0f0f0;
+}
+
+.navbar .logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/* Banner / Typewriter effect */
+.banner {
+  text-align: left;  
+  color: #0f0;       
+  font-family: monospace;
+  padding: 80px 40px 40px 40px;
+  white-space: pre;  
+}
+
+#banner-message {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #fff;
+}
+
+/* Terminal Body */
+
+.terminal {
+  background-color: #000;
+  color: #0f0;
+  font-family: monospace;
+  padding: 20px 40px;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+#terminal-block {
+  white-space: pre;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+/* Input line */
+.input-line {
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+}
+
+.prompt {
+  color: #0f0;
+  font-size: 1rem;
+}
+
+.terminal-input-container {
+  position: relative;
+  display: inline-flex;
+  background-color: #000;
+  color: #0f0;
+}
+
+.terminal-input {
+  outline: none;
+  background-color: transparent;
+  color: inherit;
+  caret-color: transparent; /* hide native caret */
+  white-space: pre;
+  font-size: 1rem;
+}
+
+/* Blinking cursor */
+.cursor {
+  width: 10px;
+  height: 1.75em;
+  background-color: #0f0;
+  margin-left: 2px;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  50.1%, 100% { opacity: 0; }
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+}

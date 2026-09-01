@@ -33,6 +33,14 @@
     }
   ];
 
+  // Cursor regions are relative to the player, using values from 0 to 1.
+  // Change these boundaries later to reshape the four regions.
+  var cursorRanges = [
+    { mood: 0, fromX: 0, fromY: 0, toX: 0.5, toY: 0.5 },       // top-left
+    { mood: 1, fromX: 0.5, fromY: 0, toX: 1, toY: 0.5 },       // top-right
+    { mood: 2, fromX: 0, fromY: 0.5, toX: 0.5, toY: 1 },       // bottom-left
+    { mood: 3, fromX: 0.5, fromY: 0.5, toX: 1, toY: 1 }        // bottom-right
+  ];
   var player = new Audio();
   player.loop = true;
   player.volume = 0.55;
@@ -70,18 +78,29 @@
     var x = event.clientX - rect.left;
     var y = event.clientY - rect.top;
 
-    var isRightSide = x > rect.width / 2;
-    var isBottomSide = y > rect.height / 2;
+    if (x < 0 || y < 0 || x > rect.width || y > rect.height) {
+      return -1;
+    }
 
-    // 0 = top-left, 1 = top-right, 2 = bottom-left, 3 = bottom-right
-    if (!isBottomSide && !isRightSide) return 0;
-    if (!isBottomSide && isRightSide) return 1;
-    if (isBottomSide && !isRightSide) return 2;
-    return 3;
+    for (var i = 0; i < cursorRanges.length; i++) {
+      var range = cursorRanges[i];
+      var withinX = x >= range.fromX * rect.width && x <= range.toX * rect.width;
+      var withinY = y >= range.fromY * rect.height && y <= range.toY * rect.height;
+
+      if (withinX && withinY) {
+        return range.mood;
+      }
+    }
+
+    return -1;
   }
 
-  container.addEventListener("mousemove", function (event) {
-    selectMood(getMoodFromCursor(event));
+  document.addEventListener("mousemove", function (event) {
+    var moodIndex = getMoodFromCursor(event);
+
+    if (moodIndex !== -1) {
+      selectMood(moodIndex);
+    }
   });
 
   startBtn.addEventListener("click", function () {
@@ -93,11 +112,9 @@
     if (currentMood === -1) {
       selectMood(0);
     } else {
+      var selectedMood = currentMood;
       currentMood = -1; // forces the selected song to load
-      selectMood(getMoodFromCursor({
-        clientX: window.innerWidth / 2,
-        clientY: container.getBoundingClientRect().top + 20
-      }));
+      selectMood(selectedMood);
     }
   });
 

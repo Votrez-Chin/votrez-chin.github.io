@@ -5,20 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thomas Cheung | Web Developer</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/shared.css">
 </head>
 <body>
 
   <!-- Navbar -->
   <header class="navbar">
-    <h1 class="logo">Thomas Cheung</h1>
+    <h1 class="logo"><a href="/index.html" class="active">Thomas Cheung</a></h1>
     <nav>
       <ul>
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#works">Works</a></li>
+        <li><button id="menuBtn" class="menu-btn">Menu</button></li>
       </ul>
     </nav>
   </header>
+
+<div id="overlay" class="overlay">
+  <div class="menu-box">
+    <button id="closeBtn" class="close-btn">&times;</button>
+    <ul class="menu-list">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="category/mathematics.html">Mathematics</a></li>
+      <li><a href="category/photography.html">Photography</a></li>
+      <li><a href="category/coding.html">Coding</a></li>
+      <li><a href="category/others.html">Others</a></li>
+      <li>
+  <a href="mailto:votrezchin@gmail.com" class="contact-btn">
+    Contact
+  </a>
+</li>
+    </ul>
+  </div>
+</div>
 
   <!-- Hero Section -->
   <section id="home" class="hero">
@@ -32,35 +51,44 @@
   <!-- About Section -->
   <section id="about" class="about fade-in">
     <h2>About Me</h2>
-    <p> I am a Mathematics graduate from The University of Manchester, with a strong foundation in analytical thinking and problem-solving. My academic interests lie primarily in mathematical logic and category theory. Beyond academia, I enjoy exploring the intersection of mathematics and programming, particularly how computational approaches can be used to investigate and express mathematical ideas. </p>
+    <p> I am a mathematics graduate from The University of Manchester, with a strong foundation in analytical thinking and problem-solving. My focus is mainly on mathematical logic and category theory. but besides academic interests, I also enjoy exploring the intersection of mathematics and programming.</p>
   </section>
 
-  <!-- Works Section -->
-  <section id="works" class="works fade-in">
-    <h2>Explore My Work</h2>
-    <div class="works-grid">
 
-      <div class="category-card fade-in" style="transition-delay: 0.2s;">
+<!-- Works Section -->
+<section id="works" class="works fade-in">
+  <h2>Explore My Work</h2>
+  <div class="works-grid">
+    <a href="category/mathematics.html" class="category-card fade-in" style="transition-delay: 0.2s;">
+      <img src="https://res.cloudinary.com/dfgtus3xa/image/upload/v1788277815/f873bc6b-d710-4a75-b434-177a07e0645a.png" alt="Mathematics" class="category-img">
+      <div class="category-overlay">
         <h3>Mathematics</h3>
-        <a href="category/mathematics.html" class="btn">Go to Math</a>
       </div>
+    </a>
 
-      <div class="category-card fade-in" style="transition-delay: 0.4s;">
+    <a href="category/photography.html" class="category-card fade-in" style="transition-delay: 0.4s;">
+      <img src="https://res.cloudinary.com/dfgtus3xa/image/upload/v1762386151/my_project_images/a5qlzvg4fyyq7urg5cmu.jpg" alt="Photography" class="category-img">
+      <div class="category-overlay">
         <h3>Photography</h3>
-        <a href="category/photography.html" class="btn">Go to Photography</a>
       </div>
+    </a>
 
-      <div class="category-card fade-in" style="transition-delay: 0.2s;">
+    <a href="category/coding.html" class="category-card fade-in" style="transition-delay: 0.2s;">
+      <img src="https://res.cloudinary.com/dfgtus3xa/image/upload/v1788277890/f3e33479-515a-4710-b8a7-0c710c63b843.png" alt="Coding" class="category-img">
+      <div class="category-overlay">
         <h3>Coding</h3>
-        <a href="category/coding.html" class="btn">Go to Coding</a>
       </div>
-      
-      <div class="category-card fade-in" style="transition-delay: 0.2s;">
+    </a>
+
+    <a href="category/others.html" class="category-card fade-in" style="transition-delay: 0.2s;">
+      <img src="https://res.cloudinary.com/dfgtus3xa/image/upload/v1788278272/462e07bb-e28b-4ebd-93e6-46a151a4cd4b.png" alt="Others" class="category-img">
+      <div class="category-overlay">
         <h3>Others</h3>
-        <a href="category/others.html" class="btn">Go to Others</a>
       </div>
-    </div>
-  </section>
+    </a>
+
+  </div>
+</section>
 
   <!-- Footer -->
   <footer>

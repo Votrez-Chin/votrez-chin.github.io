@@ -28,7 +28,7 @@ function typeLines(lines, idx = 0, callback) {
     if (charIndex < line.length) {
       terminalBlock.innerText += line.charAt(charIndex);
       charIndex++;
-      setTimeout(typeChar, 20);
+      setTimeout(typeChar, 10);
     } else {
       terminalBlock.innerText += "\n";
       typeLines(lines, idx + 1, callback);

@@ -5,20 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Coding | Thomas Cheung</title>
   <link rel="stylesheet" href="../css/coding.css" />
+  <link rel="stylesheet" href="../css/shared.css" />
 </head>
 <body>
   <!-- Hidden Navbar -->
   <header class="navbar">
-    <h1 class="logo">Thomas Cheung</h1>
+    <h1 class="logo"><a href="/index.html" class="active">Thomas Cheung</a></h1>
     <nav>
       <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="mathematics.html">Mathematics</a></li>
-        <li><a href="photography.html">Photography</a></li>
-        <li><a href="others.html">Others</a></li>
+        <li><button id="menuBtn" class="menu-btn">Menu</button></li>
       </ul>
     </nav>
   </header>
+  <div id="overlay" class="overlay">
+  <div class="menu-box">
+    <button id="closeBtn" class="close-btn">&times;</button>
+    <ul class="menu-list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/index.html#about">About</a></li>
+      <li><a href="/category/mathematics.html">Mathematics</a></li>
+      <li><a href="/category/photography.html">Photography</a></li>
+      <li><a href="/category/coding.html">Coding</a></li>
+      <li><a href="/category/others.html">Others</a></li>
+      <li>
+  <a href="mailto:votrezchin@gmail.com" class="contact-btn">
+    Contact
+  </a>
+</li>
+    </ul>
+  </div>
+  </div>
 
   <!-- Banner / Pre-rendered Text -->
   <section class="terminal">
@@ -37,5 +53,6 @@
   </footer>
 
   <script src="../js/coding.js"></script>
+  <script src="../js/script.js"></script>
 </body>
 </html>

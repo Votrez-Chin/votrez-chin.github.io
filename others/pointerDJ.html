@@ -5,34 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pointer DJ | Thomas Cheung</title>
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/shared.css">
   <link rel="stylesheet" href="../css/pointerDJ.css">
 </head>
 <body>
 
   <!-- Navbar -->
   <header class="navbar">
-    <h1 class="logo">Thomas Cheung</h1>
+    <h1 class="logo"><a href="/index.html" class="active">Thomas Cheung</a></h1>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#projects" class="active">Projects</a></li>
+        <li><button id="menuBtn" class="menu-btn">Menu</button></li>
       </ul>
     </nav>
   </header>
 
+<div id="overlay" class="overlay">
+  <div class="menu-box">
+    <button id="closeBtn" class="close-btn">&times;</button>
+    <ul class="menu-list">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../category/mathematics.html">Mathematics</a></li>
+      <li><a href="../category/photography.html">Photography</a></li>
+      <li><a href="../category/coding.html">Coding</a></li>
+      <li><a href="../category/others.html">Others</a></li>
+      <li>
+  <a href="mailto:votrezchin@gmail.com" class="contact-btn">
+    Contact
+  </a>
+</li>
+    </ul>
+  </div>
+</div>
+
  <main>
-    <section class="hero">
-      <h2>Cursor Music</h2>
-      <p>Move your cursor across the image to change the music and mood.</p>
-    </section>
-
-    <section class="projects fade-in" aria-labelledby="try-it-heading">
-      <h2 id="try-it-heading">Try It!</h2>
-
       <div id="pointer-dj-container">
         <div id="background-overlay">
-          <p id="now-playing">Move your cursor to choose a mood</p>
+          <div>
+            <h1>Cursor Music</h1>
+            <p id="now-playing">Move your cursor to choose a mood</p>
+          </div>
         </div>
 
         <div id="controls">
@@ -47,15 +60,10 @@
           <button id="startBtn" type="button">Enter</button>
         </div>
       </div>
-    </section>
   </main>
 
-  <footer>
-    <p>© 2025 Thomas Cheung</p>
-  </footer>
-
   <script src="../js/pointerDJ.js"></script>
+  <script src="../js/script.js"></script>
 </body>
 </html>
-
 

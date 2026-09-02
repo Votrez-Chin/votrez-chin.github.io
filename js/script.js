@@ -46,4 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
       overlay.classList.remove('active');
     }
   });
+
+  overlay.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      overlay.classList.remove('active');
+    });
+  });
 });

@@ -30,11 +30,7 @@
       <li><a href="category/photography.html">Photography</a></li>
       <li><a href="category/coding.html">Coding</a></li>
       <li><a href="category/others.html">Others</a></li>
-      <li>
-  <a href="mailto:votrezchin@gmail.com" class="contact-btn">
-    Contact
-  </a>
-</li>
+      <li><a href="#contact" class="contact-btn">Contact</a></li>
     </ul>
   </div>
 </div>
@@ -90,9 +86,58 @@
   </div>
 </section>
 
+  <!-- Contact Section -->
+  <section id="contact" class="contact fade-in">
+    <div class="contact-content">
+      <div class="contact-form">
+        <h2>Get In Touch</h2>
+        <p>If you have a question or would like to work together, send me a message.</p>
+        <form method="post" action="mailto:votrezchin@gmail.com" enctype="text/plain">
+          <div class="contact-fields">
+            <div class="contact-field">
+              <label for="name">Name</label>
+              <input type="text" name="name" id="name" autocomplete="name" required>
+            </div>
+            <div class="contact-field">
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" autocomplete="email" required>
+            </div>
+            <div class="contact-field contact-field-full">
+              <label for="message">Message</label>
+              <textarea name="message" id="message" rows="6" required></textarea>
+            </div>
+          </div>
+          <div class="contact-actions">
+            <button type="submit" class="btn">Send Message</button>
+            <button type="reset" class="btn btn-secondary">Clear</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="contact-details">
+        <div class="contact-method">
+          <h3>Email</h3>
+          <a href="mailto:votrezchin@gmail.com">votrezchin@gmail.com</a>
+        </div>
+        <div class="contact-method">
+          <h3>Based In</h3>
+          <span>Manchester, United Kingdom</span>
+        </div>
+        <div class="contact-method">
+          <h3>Background</h3>
+          <span>Mathematics graduate<br>University of Manchester</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer>
-    <p>© 2025 Thomas Cheung</p>
+    <div class="footer-links">
+      <a href="mailto:votrezchin@gmail.com">Email</a>
+      <a href="https://github.com/Votrez-Chin" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+    <p>&copy; 2025 Thomas Cheung</p>
   </footer>
 
   <!-- External JS -->

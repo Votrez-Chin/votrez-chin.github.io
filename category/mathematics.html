@@ -9,6 +9,26 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/shared.css">
 
+  <!-- Thesis viewer styles -->
+  <style>
+    .thesis {
+      margin-top: 30px;
+    }
+    .thesis-viewer {
+      width: 100%;
+      height: 75vh;
+      min-height: 500px;
+      border: 1px solid #333;
+      border-radius: 10px;
+      background-color: #222;
+    }
+  </style>
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
 </head>
 <body>
   <!-- Navbar -->
@@ -43,19 +63,18 @@
   <!-- Main Content -->
   <main class="container fade-in">
     <h2>Mathematics Blog</h2>
-    <p>Welcome! Explore topics in algebra, calculus, and geometry. Use the mini command below to reveal solutions or hints.</p>
+    <p>Welcome! Here is where I share my thoughts and insights on various mathematical topics.</p>
 
-    <!-- Blog Content (Markdown + LaTeX) -->
-    <div id="blog-content"></div>
-
-    <!-- Mini terminal interaction -->
-    <div class="command-line">
-      <span class="prompt">></span>
-      <input type="text" id="command-input" placeholder="Type command like 'show solution'" autocomplete="off">
-    </div>
-    <div id="solution1" class="solution">
-      Here is the solution: $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
-    </div>
+    <section class="thesis" aria-labelledby="thesis-title">
+      <h2 id="thesis-title">Final-Year Thesis</h2>
+      <p>Read <em>Category of Modules</em> online, or <a href="../documents/Categories_of_Modules_Cheung_Chin_Wang.pdf" download>download the PDF</a>.</p>
+      <iframe
+        class="thesis-viewer"
+        src="../documents/Categories_of_Modules_Cheung_Chin_Wang.pdf"
+        title="Category of Modules thesis">
+        <p>Your browser cannot display PDFs inline. <a href="../documents/Categories_of_Modules_Cheung_Chin_Wang.pdf">Open the thesis PDF</a>.</p>
+      </iframe>
+    </section>
 
   </main>
 

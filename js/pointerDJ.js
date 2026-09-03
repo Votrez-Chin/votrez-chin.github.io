@@ -22,7 +22,7 @@
       image: "https://res.cloudinary.com/dfgtus3xa/image/upload/v1787335287/mqdefault.jpg"
     },
     {
-      title: "Electronic",
+      title: "メグルメ",
       song: "https://res.cloudinary.com/dfgtus3xa/video/upload/v1787335517/%E3%83%A1%E3%82%AF%E3%83%AB%E3%83%A1_vG5_bwL7UkI.mp3",
       image: "https://res.cloudinary.com/dfgtus3xa/image/upload/v1787335353/maxresdefault.jpg"
     },
